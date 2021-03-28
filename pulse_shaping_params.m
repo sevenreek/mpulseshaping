@@ -42,3 +42,22 @@ nakhostin_10_3_gain = sampling_rate/2/hpf_diff_constant;
 nakhostin_10_3_L = 8;
 nakhostin_10_3_N = 16;
 nakhostin_10_3_fir_coeff = [0,ones(1,nakhostin_10_3_L-1)];
+
+%Nakhostin 10.10
+nakhostin_10_10_k = 4;
+nakhostin_10_10_l = 8;
+nakhostin_10_10_M = 1/( exp(sampling_rate/hpf_diff_constant) - 1 );
+
+%smooth_derivative
+smooth_derivative_len = 4;
+smooth_derivative_coeff = [ones(1,smooth_derivative_len), -ones(1,smooth_derivative_len)];
+
+%smooth_derivative 2
+smooth_derivative_2_len = 0;
+if(smooth_derivative_2_len == 0)
+    smooth_derivative_2_coeff = [1];
+else
+    smooth_derivative_2_coeff = [ones(1,smooth_derivative_2_len), -ones(1,smooth_derivative_2_len)];
+end;
+
+
